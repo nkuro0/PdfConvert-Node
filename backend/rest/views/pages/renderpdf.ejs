@@ -1,0 +1,16 @@
+<%include header%>
+<body>
+<div class="jumbotron">
+    <h2>Render PDF</h2>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <% for (reqsDb of reqDb) { %>
+                <p><%= reqsDb.content %></p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<%include footer%>

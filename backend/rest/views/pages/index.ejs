@@ -1,0 +1,36 @@
+<%include header%>
+<body>
+<div class="jumbotron">
+    <div class="container-fluid">
+        <div class="row">
+            <h2>Parsing PDF</h2>
+            <div class="col-md-3">
+                <form method="POST" action="/create_pdf" enctype="multipart/form-data">
+                    <label for="extractor">Extracteur PDF</label>
+                    <br><select class="form-control" name="extractor" id="extractor">
+                        <option name="pdf2json" value="pdf2json">PDF2JSON</option>
+                        <option name="pdfextract" value="pdfextract">PDFEXTRACT</option>
+                        <option name="textract" value="textract">TEXTRACT</option>
+                    </select>
+                    <br><label for="file">Upload Pdf</label>
+                    <input id="file" type="file" name="file">
+                    <br><input type="submit" name="submit" id="submit" class="exec btn btn-success" value="Exécuter">
+                </form>
+            </div>
+            <div class="col-md-3">
+                <form method="POST" action="tata/render_pdf">
+                    <label for="require">PDF a afficher</label>
+                    <br>
+                    <select class="form-control" name="require">
+                        <% for (reqsDb of reqDb) { %>
+                        <option value="<%=reqsDb.id%>"><%=reqsDb.name%></option>
+                        <% } %>
+                    </select>
+                    <br><input type="submit" name="envoi" class="exec btn btn-success" value="Afficher">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<%include footer%>
+
